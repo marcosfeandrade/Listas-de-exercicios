@@ -1,0 +1,60 @@
+//Marcos Fellipe Andrade da Silva
+package javaapplication1;
+
+import java.util.Scanner;
+
+public class JavaApplication1 {
+
+    public static void printarVetor(int[] vect) {
+        for (int v = 0; v < vect.length; v++) {
+            System.out.print(vect[v] + " ");
+        }
+        System.out.println();
+    }
+
+    public static void pctg(int[] vect) {
+        String[] nome = {"Branco", "João", "Maria", "Pedro", "Luíz", "Ana", "Luiza", "Silvia", "André", "Nulo"};
+        int soma = 0;
+        for (int i = 0; i < vect.length; i++) {
+            soma += vect[i];
+        }
+
+        for (int i = 0; i < vect.length; i++) {
+            System.out.println("O candidato " + nome[i] + " teve " + ((vect[i] * 100.0) / soma) + "%");
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int[] vect = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+        char resp = 'A';
+        while (resp != 'N') {
+            System.out.println("Voto 0 – Voto em branco "
+                    + "1 – Voto em João "
+                    + "2 – Voto em Maria "
+                    + "3 – Voto em Pedro "
+                    + "4 – Voto em Luís "
+                    + "5 – Voto em Ana "
+                    + "6 – Voto em Luiza "
+                    + "7 – Voto em Silvia "
+                    + "8 – Voto em André: ");
+            int voto = in.nextInt();
+
+            if (voto >= 9 || voto < 0) {
+                voto = 9;
+            }
+            vect[voto]++;
+            printarVetor(vect);
+
+            System.out.println("Deseja votar novamente? ");
+            resp = in.next().charAt(0);
+            resp = Character.toUpperCase(resp);
+            while (resp != 'S' && resp != 'N') {
+                System.out.println("Resposta inválida. Deseja votar novamento: ");
+                resp = in.next().charAt(0);
+                resp = Character.toUpperCase(resp);
+            }
+        }
+        pctg(vect);
+    }
+}
