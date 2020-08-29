@@ -1,0 +1,31 @@
+//Marcos Fellipe Andrade da Silva
+package javaapplication1;
+
+import java.util.Scanner;
+import java.util.Random;
+
+public class JavaApplication1 {
+
+    public static void preencheVet(int[] vet) {
+        Scanner in = new Scanner(System.in);
+        Random gera = new Random();
+        int j;
+        for (int i = 0; i < 1000000; i++) {
+            j = gera.nextInt(6);
+            vet[j] = vet[j] + 1;
+        }
+        exibeCasa(vet);
+    }
+
+    public static void exibeCasa(int[] vet) {
+        for (int i = 0; i < vet.length; i++) {
+            System.out.println("Face " + (i + 1) + ": " + vet[i]);
+        }
+    }
+
+    public static void main(String[] args) {
+        int[] vet;
+        vet = new int[6];
+        preencheVet(vet);
+    }
+}

@@ -1,0 +1,44 @@
+//Marcos Fellipe Andrade da Silva
+package javaapplication1;
+
+import java.util.Scanner;
+
+public class JavaApplication1 {
+
+    public static void preencheVet(int[] vet) {
+        Scanner in = new Scanner(System.in);
+        for (int i = 0; i < vet.length; i++) {
+            System.out.printf("Insira o valor: ");
+            vet[i] = in.nextInt();
+        }
+    }
+
+    public static int maiorVal(int[] vet) {
+        int maior = vet[0];
+        for (int i = 0; i < vet.length; i++) {
+            if (vet[i] > maior) {
+                maior = vet[i];
+            }
+        }
+        return maior;
+    }
+
+    public static int menorVal(int[] vet) {
+        int menor = vet[0];
+        int i = 0;
+        for (; i < vet.length; i++) {
+            if (vet[i] < menor) {
+                menor = vet[i];
+            }
+        }
+        return i;
+    }
+
+    public static void main(String[] args) {
+        int[] vet;
+        vet = new int[20];
+        preencheVet(vet);
+        System.out.println("O maior valor do vetor é: " + maiorVal(vet));
+        System.out.println("A posição do menor valor do vetor é a: " + menorVal(vet) + "º");
+    }
+}
