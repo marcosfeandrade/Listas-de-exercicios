@@ -1,0 +1,88 @@
+//Marcos Fellipe Andrade da Silva
+package javaapplication1;
+
+import java.util.Scanner;
+
+public class JavaApplication1 {
+
+    public static void corredor(boolean[] vetA, boolean[] vetB, boolean[] vetC, boolean[] vetD) {
+        Scanner in = new Scanner(System.in);
+        char resp = 'Z';
+        while (!(isQueueFull(vetA) == true && isQueueFull(vetB) == true && isQueueFull(vetC) == true && isQueueFull(vetD) == true)) {
+            System.out.println("Fileira: ");
+            resp = in.next().charAt(0);
+            resp = Character.toUpperCase(resp);
+            while (resp != 'A' && resp != 'B' && resp != 'C' && resp != 'D') {
+                System.out.println("Resposta inválida. Insira novamente a fileira: ");
+                resp = in.next().charAt(0);
+                resp = Character.toUpperCase(resp);
+            }
+            if (resp == 'A') {
+                if (isQueueFull(vetA) == true) {
+                    System.out.println("A fileira A está lotada.");
+                } else {
+                    poltrona(vetA);
+                }
+            } else if (resp == 'B') {
+                if (isQueueFull(vetB) == true) {
+                    System.out.println("A fileira B está lotada.");
+                } else {
+                    poltrona(vetB);
+                }
+            } else if (resp == 'C') {
+                if (isQueueFull(vetC) == true) {
+                    System.out.println("A fileira C está lotada.");
+                } else {
+                    poltrona(vetC);
+                }
+            } else {
+                if (isQueueFull(vetD) == true) {
+                    System.out.println("A fileira D está lotada.");
+                } else {
+                    poltrona(vetD);
+                }
+            }
+        }
+        System.out.println("O ônibus está lotado.");
+    }
+
+    public static boolean isQueueFull(boolean[] vet) {
+
+        for (int i = 0; i < vet.length; i++) {
+            if (vet[i] == false) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public static void poltrona(boolean[] p) {
+        Scanner in = new Scanner(System.in);
+        int n = 0;
+        System.out.println("Insira o numero da poltrona (Apenas números de 1 a 12): ");
+        n = in.nextInt() - 1;
+        while (n < 0 || n > 12) {
+            System.out.println("Numero inválido. Apenas números de 1 a 12: ");
+            n = in.nextInt() - 1;
+        }
+        if (isChairFull(p, n)) {
+            System.out.println("Poltrona já preenchida. Insira o numero da poltrona: ");
+            n = in.nextInt() - 1;
+        }
+
+        p[n] = true;
+
+    }
+
+    public static boolean isChairFull(boolean[] vet, int n) {
+        return vet[n] == true;
+    }
+
+    public static void main(String[] args) {
+        boolean[] A = new boolean[12];
+        boolean[] B = new boolean[12];
+        boolean[] C = new boolean[12];
+        boolean[] D = new boolean[12];
+        corredor(A, B, C, D);
+    }
+}
