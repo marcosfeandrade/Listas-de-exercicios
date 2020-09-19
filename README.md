@@ -1,2 +1,1 @@
-# Lista-1-de-exercicios
-Teste
+# Listas-de-exercicios
