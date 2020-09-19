@@ -1,0 +1,99 @@
+//Marcos Fellipe Andrade da Silva
+package javaapplication1;
+
+import java.util.Scanner;
+
+public class JavaApplication1 {
+
+    public static void showsValues(int[] vect, int qtt) {
+        for (int i = 0; i < qtt; i++) {
+            System.out.print(vect[i] + " ");
+        }
+        System.out.println();
+    }
+
+    public static int searchVect(int[] vect, int num) {
+        int i;
+        boolean find = false;
+        for (i = 0; i < vect.length; i++) {
+            if (vect[i] == num) {
+                find = true;
+                break;
+            }
+        }
+        return i;
+    }
+
+    public static int fillsVect(int[] vect, int num, int qtt) {
+        Scanner in = new Scanner(System.in);
+        for (int i = 0; i < vect.length; i++) {
+            if (vect[i] == num) {
+                System.out.println("O valor está repetido. Insira novamente: ");
+                num = in.nextInt();
+                break;
+            }
+        }
+        vect[qtt] = num;
+        return ++qtt;
+    }
+
+    public static void menu(int[] vectA, int[] vectB) {
+        Scanner in = new Scanner(System.in);
+        int num;
+        int qttA = 0, qttB = 0;
+        char resp;
+        do {
+            System.out.println("Escolha a opção: ");
+            System.out.println("1 - Armazenar número");
+            System.out.println("2 - Procurar número");
+            System.out.println("3 - Exibir números pares");
+            System.out.println("4 - Exibir números ímpares");
+            System.out.println("5 - Encerrar programa");
+            resp = in.next().charAt(0);
+            while (resp != '1' && resp != '2' && resp != '3' && resp != '4' && resp != '5') {
+                System.out.println("Opção inválida. Escolha novamente a opção: ");
+                System.out.println("1 - Armazenar número");
+                System.out.println("2 - Procurar número");
+                System.out.println("3 - Exibir números pares");
+                System.out.println("4 - Exibir números ímpares");
+                System.out.println("5 - Encerrar programa");
+                resp = in.next().charAt(0);
+            }
+            switch (resp) {
+
+                case '1':
+                    System.out.println("Apenas numeros diferentes de 0: ");
+                    num = in.nextInt();
+                    if (num % 2 == 0) {
+                        qttA = fillsVect(vectA, num, qttA);
+                    } else {
+                        qttB = fillsVect(vectB, num, qttB);
+                    }
+                    break;
+                case '2':
+                    System.out.println("Insira o número buscado: ");
+                    num = in.nextInt();
+                    if (num % 2 == 0) {
+                        searchVect(vectA, num);
+                    } else {
+                        searchVect(vectB, num);
+                    }
+                    break;
+                case '3':
+                    showsValues(vectA, qttA);
+                    break;
+                case '4':
+                    showsValues(vectB, qttB);
+                    break;
+                default:
+                    break;
+            }
+        } while (resp != '5');
+    }
+
+    public static void main(String[] args) {
+        int[] vectA = new int[50];
+        int[] vectB = new int[50];
+        menu(vectA, vectB);
+    }
+}
