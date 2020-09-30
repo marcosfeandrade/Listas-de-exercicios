@@ -10,7 +10,7 @@ public class Questao1 {
         double[][] vectM = new double[20][3]; //alunos = linha; notas = coluna
         fillsName(n, vectM);
         double A = classAverage(vectM);
-        percentage(vectM, A);
+        System.out.println(percentage(vectM, A) + " alunos ficaram com media abaixo da m√©dia da turma");
     }
 
     public static void fillsName(String[] n, double[][] vectM) {
@@ -42,13 +42,13 @@ public class Questao1 {
     }
 
     public static void showA(String[] n, int i, double[][] vectM) {
-        System.out.println("O aluno " + n[i] + " obteve mÈdia " + vectM[i][3]);
+        System.out.println("O aluno " + n[i] + " obteve m√©dia " + vectM[i][2]);
     }
 
     public static double classAverage(double[][] vectM) {
         double A = 0;
         for (int i = 0; i < vectM.length; i++) {
-            A = A + vectM[i][3];
+            A = A + vectM[i][2];
         }
         return A / vectM.length;
     }
@@ -56,7 +56,7 @@ public class Questao1 {
     public static int percentage(double[][] vectM, double A) {
         int bM = 0;
         for (int i = 0; i < vectM.length; i++) {
-            if (vectM[i][3] < A) {
+            if (vectM[i][2] < A) {
                 bM++;
             }
         }
@@ -64,16 +64,16 @@ public class Questao1 {
     }
 
     public static void bigSmallAverage(double[][] vectM) {
-        double bigger = 0, smaller = 11;
+        double bigger = -1, smaller = 11;
         for (int i = 0; i < vectM.length; i++) {
-            if (vectM[i][3] > bigger) {
-                bigger = vectM[i][3];
+            if (vectM[i][2] > bigger) {
+                bigger = vectM[i][2];
             }
-            if (vectM[i][3] < smaller) {
-                smaller = vectM[i][3];
+            if (vectM[i][2] < smaller) {
+                smaller = vectM[i][2];
             }
         }
-        System.out.println("A maior mÈdia da turma foi: " + bigger);
-        System.out.println("A menor mÈdia da turma foi:" + smaller);
+        System.out.println("A maior m√©dia da turma foi: " + bigger);
+        System.out.println("A menor m√©dia da turma foi:" + smaller);
     }
 }
