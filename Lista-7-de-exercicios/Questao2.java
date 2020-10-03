@@ -3,7 +3,7 @@ package ListadeExercicios;
 
 import java.util.Scanner;
 
-public class Questao1 {
+public class Questao2 {
 
     public static void main(String[] args) {
         String[] n = new String[20];
@@ -48,7 +48,7 @@ public class Questao1 {
     public static double classAverage(double[][] vectM) {
         double A = 0;
         for (int i = 0; i < vectM.length; i++) {
-            A = A + vectM[i][3];
+            A = A + vectM[i][2];
         }
         return A / vectM.length;
     }
@@ -56,7 +56,7 @@ public class Questao1 {
     public static int percentage(double[][] vectM, double A) {
         int bM = 0;
         for (int i = 0; i < vectM.length; i++) {
-            if (vectM[i][3] < A) {
+            if (vectM[i][2] < A) {
                 bM++;
             }
         }
@@ -64,13 +64,13 @@ public class Questao1 {
     }
 
     public static void bigSmallAverage(double[][] vectM) {
-        double bigger = 0, smaller = 11;
+        double bigger = -1, smaller = 11;
         for (int i = 0; i < vectM.length; i++) {
-            if (vectM[i][3] > bigger) {
-                bigger = vectM[i][3];
+            if (vectM[i][2] > bigger) {
+                bigger = vectM[i][2];
             }
             if (vectM[i][3] < smaller) {
-                smaller = vectM[i][3];
+                smaller = vectM[i][2];
             }
         }
         System.out.println("A maior média da turma foi: " + bigger);

@@ -19,12 +19,12 @@ public class Questao3 {
         mB = new int[c][l];
         fillsA(mA);
         trans(mA, mB);
-        System.out.println("Deseja exibir alguma matriz(S para sim e N para n√£o)? ");
+        System.out.println("Deseja exibir alguma matriz(S para sim e N para n„o)? ");
         resp = in.next().charAt(0);
         resp = Character.toUpperCase(resp);
         while (resp != 'S' && resp != 'N') {
-            System.out.println("Resposta inv√°lida.");
-            System.out.println("Deseja exibir alguma matriz(S para sim e N para n√£o)? ");
+            System.out.println("Resposta inv·lida.");
+            System.out.println("Deseja exibir alguma matriz(S para sim e N para n„o)? ");
             resp = in.next().charAt(0);
             resp = Character.toUpperCase(resp);
         }
@@ -33,7 +33,7 @@ public class Questao3 {
             resp = in.next().charAt(0);
             resp = Character.toUpperCase(resp);
             while (resp != 'A' && resp != 'B') {
-                System.out.println("Resposta inv√°lida.");
+                System.out.println("Resposta inv·lida.");
                 System.out.println("Deseja exibir alguma matriz(A para matriz A e B para a transposta de A)? ");
                 resp = in.next().charAt(0);
                 resp = Character.toUpperCase(resp);
