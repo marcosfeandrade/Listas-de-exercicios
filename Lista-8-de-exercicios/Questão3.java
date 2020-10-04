@@ -113,7 +113,7 @@ public class Questão3 {
         String mesF;
         mesF = in.nextLine();
         int linhaMaxima = 8;
-        while (mesF != mes[0] && mesF != mes[1] && mesF != mes[2] && mesF != mes[3] && mesF != mes[4] && mesF != mes[5] && mesF != mes[6] && mesF != mes[7] && mesF != mes[8] && mesF != mes[9] && mesF != mes[10] && mesF != mes[11]) {
+        while (!mesF.equalsIgnoreCase(mes[0]) && !!mesF.equalsIgnoreCase(mes[1]) && !mesF.equalsIgnoreCase(mes[2]) && !mesF.equalsIgnoreCase(mes[3]) && !mesF.equalsIgnoreCase(mes[4]) && !mesF.equalsIgnoreCase(mes[5]) && !mesF.equalsIgnoreCase(mes[6]) && !mesF.equalsIgnoreCase(mes[7]) && !mesF.equalsIgnoreCase(mes[8]) && !mesF.equalsIgnoreCase(mes[9]) && !mesF.equalsIgnoreCase(mes[10]) && !mesF.equalsIgnoreCase(mes[11])) {
             System.out.println("Mês inválido. Digite novamente: ");
             mesF = in.nextLine();
         }
