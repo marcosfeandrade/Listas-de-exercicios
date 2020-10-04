@@ -18,13 +18,13 @@ public class Questao3 {
         mA = new int[l][c];
         mB = new int[c][l];
         fillsA(mA);
-        trans(mA, mB);
-        System.out.println("Deseja exibir alguma matriz(S para sim e N para não)? ");
+        mB = trans(mA, mB);
+        System.out.println("Deseja exibir alguma matriz(S para sim e N para nÃ£o)? ");
         resp = in.next().charAt(0);
         resp = Character.toUpperCase(resp);
         while (resp != 'S' && resp != 'N') {
-            System.out.println("Resposta inválida.");
-            System.out.println("Deseja exibir alguma matriz(S para sim e N para não)? ");
+            System.out.println("Resposta invï¿½lida.");
+            System.out.println("Deseja exibir alguma matriz(S para sim e N para nï¿½o)? ");
             resp = in.next().charAt(0);
             resp = Character.toUpperCase(resp);
         }
@@ -33,15 +33,14 @@ public class Questao3 {
             resp = in.next().charAt(0);
             resp = Character.toUpperCase(resp);
             while (resp != 'A' && resp != 'B') {
-                System.out.println("Resposta inválida.");
+                System.out.println("Resposta invï¿½lida.");
                 System.out.println("Deseja exibir alguma matriz(A para matriz A e B para a transposta de A)? ");
                 resp = in.next().charAt(0);
                 resp = Character.toUpperCase(resp);
             }
-            if(resp == 'A'){
+            if (resp == 'A') {
                 showMatrix(mA);
-            }
-            else{
+            } else {
                 showMatrix(mB);
             }
         }
@@ -58,17 +57,18 @@ public class Questao3 {
         }
     }
 
-    public static void trans(int[][] mA, int[][] mB) {
+    public static int[][] trans(int[][] mA, int[][] mB) {
         for (int i = 0; i < mA.length; i++) {
             for (int j = 0; j < mA[i].length; j++) {
                 mB[j][i] = mA[i][j];
             }
         }
+        return mB;
     }
 
     public static void showMatrix(int[][] m) {
-        for (int i = 0; i < m.length; i++) {
-            for (int j = 0; j < m[i].length; j++) {
+        for (int i = 0; i <= m.length - 1; i++) {
+            for (int j = 0; j <= m[i].length - 1; j++) {
                 System.out.print(m[i][j] + " ");
             }
             System.out.println();

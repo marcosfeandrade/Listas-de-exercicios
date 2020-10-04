@@ -10,7 +10,7 @@ public class Questao2 {
         double[][] vectM = new double[20][3]; //alunos = linha; notas = coluna
         fillsName(n, vectM);
         double A = classAverage(vectM);
-        percentage(vectM, A);
+        System.out.println(percentage(vectM, A) + " alunos ficaram com media abaixo da mÃ©dia da turma");
     }
 
     public static void fillsName(String[] n, double[][] vectM) {
@@ -42,7 +42,7 @@ public class Questao2 {
     }
 
     public static void showA(String[] n, int i, double[][] vectM) {
-        System.out.println("O aluno " + n[i] + " obteve média " + vectM[i][3]);
+        System.out.println("O aluno " + n[i] + " obteve mÃ©dia " + vectM[i][2]);
     }
 
     public static double classAverage(double[][] vectM) {
@@ -69,11 +69,11 @@ public class Questao2 {
             if (vectM[i][2] > bigger) {
                 bigger = vectM[i][2];
             }
-            if (vectM[i][3] < smaller) {
+            if (vectM[i][2] < smaller) {
                 smaller = vectM[i][2];
             }
         }
-        System.out.println("A maior média da turma foi: " + bigger);
-        System.out.println("A menor média da turma foi:" + smaller);
+        System.out.println("A maior mÃ©dia da turma foi: " + bigger);
+        System.out.println("A menor mÃ©dia da turma foi:" + smaller);
     }
 }
