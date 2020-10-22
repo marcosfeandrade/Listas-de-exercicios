@@ -37,6 +37,13 @@ public class Questao {
     }
 
     public static boolean permutationMatrix(int[][] vect) {
+        if(testLine(vect) && testColumn(vect)){
+            return true;
+        }
+        return false;
+    }
+    
+    public static boolean testLine(int[][] vect){
         int count = 0;
         for (int i = 0; i < vect.length; i++) {
             for (int c = 0; c < vect[i].length; c++) {
@@ -54,6 +61,26 @@ public class Questao {
         }
         return true;
     }
+    
+    public static boolean testColumn(int[][] vect){
+        int count = 0;
+        for (int i = 0; i < vect.length; i++) {
+            for (int c = 0; c < vect[i].length; c++) {
+                if (vect[c][i] < 0 || vect[c][i] > 1) {
+                    return false;
+                }
+                if (vect[c][i] == 1) {
+                    count++;
+                }
+            }
+            if (count != 1) {
+                    return false;
+                }
+            count = 0;
+        }
+        return true;
+    }
+
 
     public static void printM(int[][] vect) {
         for (int i = 0; i < vect.length; i++) {
