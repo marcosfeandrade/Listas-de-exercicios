@@ -37,13 +37,13 @@ public class Questao {
     }
 
     public static boolean permutationMatrix(int[][] vect) {
-        if(testLine(vect) && testColumn(vect)){
+        if(testRow(vect) && testColumn(vect)){
             return true;
         }
         return false;
     }
     
-    public static boolean testLine(int[][] vect){
+    public static boolean testRow(int[][] vect){
         int count = 0;
         for (int i = 0; i < vect.length; i++) {
             for (int c = 0; c < vect[i].length; c++) {
