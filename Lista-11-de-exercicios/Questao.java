@@ -1,5 +1,5 @@
 //Marcos Fellipe Andrade da Silva
-package listasdeexercicios;
+package listasexercicios;
 
 import java.util.Scanner;
 
